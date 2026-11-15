@@ -543,5 +543,9 @@ int main(void) {
     printf("(Formul: (Gun x 100) + Saglik + Oksijen - Modul Hasari)\n");
     printf("============================================================\n");
 
+    printf("\nCikmak icin Enter tusuna basin...");
+    while (getchar() != '\n');
+    getchar();
+
     return 0;
 }
