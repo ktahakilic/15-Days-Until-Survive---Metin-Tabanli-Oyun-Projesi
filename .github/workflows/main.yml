@@ -1,0 +1,21 @@
+name: Mac ve Windows Derleyici
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-mac:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Mac icin C Kodunu Derle
+        run: |
+          clang 15_days_until_survive.c -o 15_days_until_survive_Mac.command
+          chmod +x 15_days_until_survive_Mac.command
+      - name: Hazir Mac Dosyasini Kaydet
+        uses: actions/upload-artifact@v4
+        with:
+          name: Mac-Oyun-Dosyasi
+          path: 15_days_until_survive_Mac.command
